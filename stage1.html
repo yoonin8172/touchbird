@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>1단계</title>
+
+    <style>
+        /* 조선굴림 웹폰트 */
+        @font-face {
+            font-family: 'JoseonGulim';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+            font-weight: normal;
+            font-display: swap;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #000;
+            color: white;
+            font-family: 'JoseonGulim', sans-serif;
+            overflow: hidden;
+        }
+
+        /* UI 영역 (텍스트) */
+        #ui {
+            padding: 15px;
+            font-size: 18px;
+            line-height: 1.5;
+            text-shadow: 0 0 5px black;
+        }
+
+        #counter-area {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        /* 배경 이미지 */
+        #bg {
+            width: 100%;
+            height: auto;
+            max-height: 65vh;
+            /* 화면 65%까지 */
+            object-fit: contain;
+            display: block;
+            margin-top: 20px;
+            /* 텍스트와 구분 */
+        }
+
+        /* 터치 영역 */
+        #touch-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- UI 텍스트 (이미지 위가 아니라 위쪽에 배치) -->
+    <div id="ui">
+        <div id="title">
+            <b>1단계: 10초 내에 60번 이상 화면을 두드리세요<br>
+                (화면을 터치하면 타이머가 시작됩니다.)</b>
+        </div>
+
+        <div id="counter-area">
+            남은 시간: <span id="time">10</span>초<br>
+            현재 터치 수: <span id="count">0</span>번
+        </div>
+    </div>
+
+    <!-- 배경 이미지 (텍스트 아래 위치) -->
+    <img id="bg" src="./images/bird1.jpeg" alt="bird">
+
+    <!-- 전체 화면 터치 감지 -->
+    <div id="touch-area"></div>
+
+    <script>
+        let timeLeft = 10;
+        let touches = 0;
+        let timerStarted = false;
+        let timerInterval = null;
+
+        const timeDisplay = document.getElementById("time");
+        const countDisplay = document.getElementById("count");
+        const touchArea = document.getElementById("touch-area");
+
+        // 화면 터치 → 타이머 시작 + 터치 카운트 증가
+        touchArea.addEventListener("touchstart", function () {
+
+            if (!timerStarted) {
+                timerStarted = true;
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+                    timeDisplay.textContent = timeLeft;
+
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        finishStage();
+                    }
+                }, 1000);
+            }
+
+            touches++;
+            countDisplay.textContent = touches;
+        });
+
+        // 종료
+        function finishStage() {
+            if (touches >= 60) {
+                alert("성공! 1단계를 통과했습니다.");
+                window.location.href = "stage2.html";
+            } else {
+                alert("실패! 다시 도전해보세요.");
+                window.location.href = "stage1.html";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

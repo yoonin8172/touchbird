@@ -1,0 +1,109 @@
+/* 조선굴림 웹폰트 (JoseonGulim) - noonfonts CDN */
+@font-face {
+    font-family: 'JoseonGulim';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+/* 기본 리셋 및 폰트 */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    font-family: 'JoseonGulim', 'Noto Sans KR', sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* 전체 화면 모바일 레이아웃 */
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+}
+
+/* 타이틀 */
+h1 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.1;
+}
+
+/* 설명 텍스트 */
+#desc {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 360px;
+    padding: 0 10px;
+    color: #222;
+}
+
+/* 이미지: 반응형 */
+#main-image {
+    width: 70%;
+    max-width: 320px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* 버튼 스타일 (단순 · 투박) */
+button {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid #333;
+    background-color: #eee;
+    padding: 12px 22px;
+    font-size: 17px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'JoseonGulim', sans-serif;
+}
+
+/* 버튼 눌림 효과 */
+button:active {
+    transform: translateY(1px);
+}
+
+/* 작은 화면일 때 텍스트/버튼 조금 축소 */
+@media (max-width: 360px) {
+    h1 {
+        font-size: 22px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 10px 18px;
+    }
+
+    #desc {
+        font-size: 15px;
+    }
+}
+
+#bg {
+    width: 100%;
+    height: auto;
+    max-height: 65vh;
+    /* 화면의 65%만 차지하도록 제한 */
+    object-fit: contain;
+    /* 이미지 비율 유지 */
+    display: block;
+}
