@@ -87,6 +87,8 @@
     <div id="touch-area"></div>
 
     <script>
+
+        ClickBattle.init("yoonin");
         let timeLeft = 10;
         let touches = 0;
         let timerStarted = false;
@@ -125,6 +127,7 @@
                 alert("실패! 다시 도전해보세요.");
                 window.location.href = "stage2.html";  // 재도전
             }
+            ClickBattle.recordClick();
         }
     </script>
 
