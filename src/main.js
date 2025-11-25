@@ -1,8 +1,6 @@
-// ------------------------------
-// 공통 스크립트 (모든 페이지에서 안전하게 로드)
-// ------------------------------
+ClickBattle.init("yoonin");
 
-// 모바일에서 두 손가락 터치 시 확대 방지
+
 document.addEventListener('touchstart', function (e) {
     if (e.touches && e.touches.length > 1) {
         e.preventDefault();
@@ -42,7 +40,10 @@ document.addEventListener('touchend', function (e) {
         const nextBtn = document.getElementById('next-btn');
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
-                window.location.href = 'stage1.html'; // 1단계 페이지로 이동
+
+
+                ClickBattle.recordClick();
+                window.location.href = 'stage1.html';
             });
         }
     });
