@@ -9,6 +9,7 @@
 
     <title>2단계</title>
     <script src="https://clickbattle2025.web.app/click-battle.js"></script>
+    <script>ClickBattle.init("yoonin");</script>
     <style>
         /* 조선굴림 웹폰트 */
         @font-face {
@@ -88,7 +89,6 @@
 
     <script>
 
-        ClickBattle.init("yoonin");
         let timeLeft = 10;
         let touches = 0;
         let timerStarted = false;
@@ -127,7 +127,7 @@
                 alert("실패! 다시 도전해보세요.");
                 window.location.href = "stage2.html";  // 재도전
             }
-            ClickBattle.recordClick();
+
         }
     </script>
 

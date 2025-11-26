@@ -1,4 +1,3 @@
-ClickBattle.init("yoonin");
 
 
 document.addEventListener('touchstart', function (e) {
@@ -42,7 +41,7 @@ document.addEventListener('touchend', function (e) {
             nextBtn.addEventListener('click', () => {
 
 
-                ClickBattle.recordClick();
+
                 window.location.href = 'stage1.html';
             });
         }
